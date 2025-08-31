@@ -24,10 +24,6 @@ server.post('/pay', (req, res) => {
     }
 });
 
-server.get('/test', (req, res) => {
-  return res.status(200).json({ message: 'test' })
-})
-
 server.listen(8000, () => {
     console.log('server is running on 8000 port');
 });
