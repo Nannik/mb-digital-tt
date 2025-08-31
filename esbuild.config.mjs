@@ -1,5 +1,6 @@
 import * as esbuild from 'esbuild'
 import { htmlPlugin } from '@craftamap/esbuild-plugin-html'
+import envPlugin from 'esbuild-envfile-plugin'
 
 const opts = {
   entryPoints: ['src/index.tsx'],
@@ -14,7 +15,8 @@ const opts = {
         filename: 'index.html',
         htmlTemplate: 'public/index.html',
       }]
-    })
+    }),
+    envPlugin
   ],
 };
 

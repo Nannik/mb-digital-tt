@@ -1,5 +1,5 @@
 export type Course = {
-  id: string,
+  id: number,
   title: string,
   description: string,
   price: number,
@@ -9,5 +9,10 @@ export type Course = {
 export type CourseState = {
   loading: boolean,
   error: string | null,
-  courses: Course[]
+
+  // In task described that only bought courses stored in state
+  // But here all courses stored in state because there is no global variable with courses
+  // Bought courses will store videoUrl field
+  courses: Course[] 
+
 }

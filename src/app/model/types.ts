@@ -5,3 +5,7 @@ export type TState = {
   coursesState: CourseState,
   userState: UserState
 }
+
+export type ThunkConfig<T> = {
+  rejectValue: T
+}
