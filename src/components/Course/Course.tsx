@@ -3,6 +3,8 @@ import { Button, Card } from "react-bootstrap";
 import { buy } from './model/thunk';
 import { useAppDispatch } from '../../app/model/store';
 import { videoActions } from '../WatchModal/model/state';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../User/model/state';
 
 type Props = {
   id: number,
@@ -25,6 +27,8 @@ export const Course = (props: Props) => {
 
   const dispatch = useAppDispatch()
 
+  const { isAuth } = useSelector(userSelector)
+
   const handleBuy = useCallback(() => {
     dispatch(buy(id))
   }, [id, dispatch])
@@ -42,10 +46,10 @@ export const Course = (props: Props) => {
         <Card.Title>{title}</Card.Title>
         {!videoUrl && (<Card.Subtitle>${price}</Card.Subtitle>)}
         <Card.Text>{description}</Card.Text>
-        {videoUrl ? (
+        {(videoUrl && isAuth) ? (
           <Button variant="primary" onClick={handleWatch} disabled={loading}>Watch</Button>
         ) : (
-          <Button variant="primary" onClick={handleBuy} disabled={loading}>Buy</Button>
+          <Button variant="primary" onClick={handleBuy} disabled={loading || !isAuth}>Buy</Button>
         )}
       </Card.Body>
     </Card>

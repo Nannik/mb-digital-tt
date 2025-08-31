@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CourseList } from '../components/Course/CourseList';
-import { Provider } from 'react-redux';
-import { store } from './model/store';
+import { useAppDispatch } from './model/store';
 import { WatchModal } from '../components/WatchModal/WatchModal';
+import { LoginForm } from '../components/User/LoginForm';
+import { userActions } from '../components/User/model/state';
 
 export const App = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.init());
+  }, [])
+
   return (
-    <Provider store={store}>
-      <CourseList />
+    <>
+      <div className='d-flex gap-2 flex-direction-row justify-content-center'>
+        <LoginForm />
+        <CourseList />
+      </div>
       <WatchModal />
-    </Provider>
+    </>
   )
 }
