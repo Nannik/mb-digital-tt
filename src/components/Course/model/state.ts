@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Course, CourseState } from "./types";
-import { fetchCourses } from "./thunk";
+import { fetchCourses, buy } from "./thunk";
 import { TState } from "../../../app/model/types";
 
 const initialState: CourseState = {
@@ -10,7 +10,7 @@ const initialState: CourseState = {
 }
 
 const coursesSlice = createSlice({
-  name: 'user',
+  name: 'video',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -29,12 +29,39 @@ const coursesSlice = createSlice({
       state.error = action.payload ?? null;
       state.courses = [];
     })
+    .addCase(buy.pending, (state, action) => {
+      if (!state.courses) return;
+
+      const id = action.meta.arg;
+      const course = state.courses.find(c => c.id === id)
+      if (course) {
+        course.loading = true;
+      }
+    })
+    .addCase(buy.fulfilled, (state, action) => {
+      if (!state.courses) return;
+
+      const id = action.meta.arg;
+      const course = state.courses.find(c => c.id === id)
+      if (course) {
+        course.loading = false;
+        course.videoUrl = action.payload;
+      }
+    })
+    .addCase(buy.rejected, (state, action) => {
+      if (!state.courses) return;
+
+      const id = action.meta.arg;
+      const course = state.courses.find(c => c.id === id)
+      if (course) {
+        course.loading = false;
+        state.error = action.payload ?? null;
+      }
+    })
   }
 });
 
-export const isLoadingSelector = (state: TState) => state.coursesState.loading
-export const errorSelector = (state: TState) => state.coursesState.error
-export const coursesSelector = (state: TState) => state.coursesState.courses
+export const coursesSelector = (state: TState) => state.coursesState;
 export const coursesActions = coursesSlice.actions;
 export const coursesReducer = coursesSlice.reducer;
 

@@ -4,6 +4,7 @@ export type Course = {
   description: string,
   price: number,
   videoUrl: string | null, // No access - no video. FE shouldn't know link
+  loading?: boolean // when payment is loading
 }
 
 export type CourseState = {
