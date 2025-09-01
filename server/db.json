@@ -4,42 +4,36 @@
       "id": 1,
       "title": "Title 1",
       "description": "Consectetur suscipit veritatis illum ipsa facere. Quia quisquam veritatis qui cum ad eos Architecto quidem ad dolorem suscipit in ipsa iure. Illo nulla illo earum qui mollitia! Tempora possimus perferendis",
-      "videoUrl": "",
       "price": 300
     },
     {
       "id": 2,
       "title": "Title 2",
       "description": "Consectetur suscipit veritatis illum ipsa facere. Quia quisquam veritatis qui cum ad eos Architecto quidem ad dolorem suscipit in ipsa iure. Illo nulla illo earum qui mollitia! Tempora possimus perferendis",
-      "videoUrl": "",
       "price": 302
     },
     {
       "id": 3,
       "title": "Title 3",
       "description": "Consectetur suscipit veritatis illum ipsa facere. Quia quisquam veritatis qui cum ad eos Architecto quidem ad dolorem suscipit in ipsa iure. Illo nulla illo earum qui mollitia! Tempora possimus perferendis",
-      "videoUrl": "",
       "price": 304
     },
     {
       "id": 4,
       "title": "Title 4",
       "description": "Consectetur suscipit veritatis illum ipsa facere. Quia quisquam veritatis qui cum ad eos Architecto quidem ad dolorem suscipit in ipsa iure. Illo nulla illo earum qui mollitia! Tempora possimus perferendis",
-      "videoUrl": "",
       "price": 306
     },
     {
       "id": 5,
       "title": "Title 5",
       "description": "Consectetur suscipit veritatis illum ipsa facere. Quia quisquam veritatis qui cum ad eos Architecto quidem ad dolorem suscipit in ipsa iure. Illo nulla illo earum qui mollitia! Tempora possimus perferendis",
-      "videoUrl": "",
       "price": 308
     },
     {
       "id": 6,
       "title": "Title 6",
       "description": "Consectetur suscipit veritatis illum ipsa facere. Quia quisquam veritatis qui cum ad eos Architecto quidem ad dolorem suscipit in ipsa iure. Illo nulla illo earum qui mollitia! Tempora possimus perferendis",
-      "videoUrl": "",
       "price": 310
     }
   ]
